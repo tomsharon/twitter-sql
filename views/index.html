@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
-  
+
   <div class="page-header">
     <h1>Welcome to Twitter.js, Nimit!</h1>
   </div>
@@ -13,24 +13,12 @@
     </div>
     <div class="col-md-9">
 
-    	<h3>All Tweets</h3>
       <!-- display tweets here -->
       {% for tweet in tweets %}
-        <ul><li><a href="/users/{{tweet.name}}/tweets/{{tweet.id}}">{{tweet.name}}</a> - {{tweet.text}}</li></ul>
+        <li><a href="/users/{{tweet.name}}">{{tweet.User.name}}</a> - <a href="/users/{{tweet.name}}/tweets/{{tweet.id}}">{{tweet.tweet}}</a></li>
       {% endfor %}
-      
+
     </div>
   </div>
-  {% if showForm %}
-    <form action="/submit" method="POST">
-      <label for="name_field">Name:</label>
-      <input name="name" type="text" id="name_field" />
 
-      <label for="text_field">Text:</label>
-      <input name="text" type="text" id="text_field" style="width: 350px;" />
-
-      <input type="submit" value="Submit" />
-    </form>
-  {% endif %}
-    
 {% endblock %}

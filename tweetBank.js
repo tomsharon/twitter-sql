@@ -1,5 +1,4 @@
 // tweetBank.js
-
 var _ = require('underscore');
 
 var data = [];
@@ -17,7 +16,12 @@ var find = function (properties) {
   return _.where(data, properties);
 };
 
-module.exports = { add: add, list: list, find: find };
+// summary api for modules
+module.exports = { 
+  add: add, 
+  list: list, 
+  find: find 
+};
 
 var randArrayEl = function(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
@@ -35,5 +39,6 @@ var getFakeTweet = function() {
 };
 
 for(var i=0; i<10; i++) {
+  // OR => add( getFakeName(), getFakeTweet(), i );
   module.exports.add( getFakeName(), getFakeTweet(), i );
- }
+}
